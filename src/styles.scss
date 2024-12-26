@@ -1,0 +1,22 @@
+/* You can add global styles to this file, and also import other style files */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-image: radial-gradient(circle, transparent 30%, rgba(255, 255, 255, 0.1) 50%);
+
+}
+
+
+@media (max-width: 768px) {
+  .mat-dialog-panel {
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+

@@ -1,0 +1,42 @@
+<div class="flex h-screen bg-gray-100">
+  <div class="flex flex-col items-center justify-center mx-auto w-full">
+    <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()" class="max-w-md mx-auto p-8 bg-white rounded-lg shadow-md">
+      <h2 class="text-2xl font-bold mb-6 text-center">Registro de Usuario</h2>
+
+      <div class="mb-4">
+        <label for="userName" class="block mb-2 text-sm font-medium text-gray-700">Nombre de usuario</label>
+        <input type="text" id="userName" formControlName="userName" class="w-full px-4 py-2 text-sm text-gray-700 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600">
+      </div>
+
+      <div class="mb-4">
+        <label for="email" class="block mb-2 text-sm font-medium text-gray-700">Correo electrónico</label>
+        <input type="email" id="email" formControlName="email" class="w-full px-4 py-2 text-sm text-gray-700 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600">
+      </div>
+
+      <div class="mb-4">
+        <label for="passwordHash" class="block mb-2 text-sm font-medium text-gray-700">Contraseña</label>
+        <input type="password" id="passwordHash" formControlName="passwordHash" class="w-full px-4 py-2 text-sm text-gray-700 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600">
+      </div>
+
+      <button  [ngClass]="{'disabled': registrationForm.invalid}" type="submit" [disabled]="!registrationForm.valid" class="w-full px-4 py-2 text-sm font-medium tracking-wide text-white capitalize transition duration-300 ease-in-out transform bg-blue-700 rounded shadow-lg hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+        Crear usuario
+      </button>
+      <div class="flex items-center justify-between">
+
+
+        <a  routerLink="/login" class="text-sm text-blue-500 hover:text-blue-600 mt-3">
+          <i class="fa-solid fa-arrow-left"></i>
+          Regresar a formulario Login</a>
+      </div>
+    </form>
+
+  </div>
+</div>
+
+<div *ngIf="animacion" class="fixed inset-0 bg-dark-background/50 backdrop-blur-sm flex items-center justify-center z-50" role="alert" aria-label="Loading content">
+  <div class="relative">
+    <div class="w-16 h-16 border-4 border-primary rounded-full animate-spin border-t-transparent"></div>
+    <div class="mt-4 text-center text-dark-foreground font-body">Loading...</div>
+  </div>
+</div>
+

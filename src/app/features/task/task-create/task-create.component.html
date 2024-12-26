@@ -1,0 +1,47 @@
+
+<form [formGroup]="frm_task" class="max-w-md mx-auto space-y-4 pb-5 mat-dialog-panel" >
+  <h2 class="text-2xl font-bold text-center mb-6 mt-4">{{lbl_title}}</h2>
+  <div>
+    <label for="title" class="block mb-2 text-sm font-medium text-gray-700">Titulo</label>
+    <input formControlName="title" type="text" id="title" name="title" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required>
+  </div>
+
+  <div>
+    <label for="description" class="block mb-2 text-sm font-medium text-gray-700">Descripcion</label>
+    <textarea formControlName="description" id="description" name="description" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" rows="3"></textarea>
+  </div>
+
+  <div>
+    <label for="priority" class="block mb-2 text-sm font-medium text-gray-700">Prioridad</label>
+    <select formControlName="priority" id="priority" name="priority" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+      <option value="">Seleccione prioridad</option>
+      <option value="low">No urgente</option>
+      <option value="medium">Medio urgente</option>
+      <option value="high">Urgente</option>
+    </select>
+  </div>
+
+  <div *ngIf="isEdit">
+    <label for="priority" class="block mb-2 text-sm font-medium text-gray-700">Estado</label>
+    <select formControlName="status" id="status" name="status" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+      <option value="">Seleccione prioridad</option>
+      <option value="pending">En progreso</option>
+      <option value="completed">Completado</option>
+
+    </select>
+  </div>
+
+  <div>
+    <label for="scheduledDate" class="block mb-2 text-sm font-medium text-gray-700">Fecha</label>
+    <input formControlName="scheduledDate" type="date" id="scheduledDate" name="scheduledDate" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required>
+  </div>
+
+  <button (click)="saveOrEditTask()" type="button"  class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">{{btn_save}}</button>
+</form>
+
+<div *ngIf="animacion" class="fixed inset-0 bg-dark-background/50 backdrop-blur-sm flex items-center justify-center z-50" role="alert" aria-label="Loading content">
+  <div class="relative">
+    <div class="w-16 h-16 border-4 border-primary rounded-full animate-spin border-t-transparent"></div>
+    <div class="mt-4 text-center text-dark-foreground font-body">Loading...</div>
+  </div>
+</div>

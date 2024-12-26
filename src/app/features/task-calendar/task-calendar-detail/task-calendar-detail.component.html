@@ -1,0 +1,27 @@
+<h4 mat-dialog-title class="modal-title">
+  Tareas para {{ data.date | date: 'fullDate' }}
+</h4>
+<div mat-dialog-content class="modal-content">
+  <div *ngIf="data.tasks.length > 0; else noTasks">
+    <ul class="task-list">
+      <li *ngFor="let task of data.tasks" class="task-item">
+        <div class="task-header">
+          <strong class="task-title">{{ task.title }}</strong>
+          <span class="task-priority" [ngClass]="task.meta.priority">
+            {{ task.meta.priority | titlecase }}
+          </span>
+        </div>
+        <p class="task-description">{{ task.meta.description }}</p>
+      </li>
+    </ul>
+  </div>
+  <ng-template #noTasks>
+    <div class="no-tasks">
+      <p>No hay tareas para este día.</p>
+    </div>
+  </ng-template>
+</div>
+<div mat-dialog-actions class="modal-actions">
+  <button mat-mini-fab mat-dialog-close class="close-button"><mat-icon>close</mat-icon>
+  </button>
+</div>

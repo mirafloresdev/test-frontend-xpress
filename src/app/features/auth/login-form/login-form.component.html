@@ -1,0 +1,40 @@
+
+<div class="flex h-screen bg-gray-100">
+  <div class="flex flex-col items-center justify-center mx-auto w-full">
+    <div class="bg-white p-8 rounded-lg shadow-xl w-full max-w-md " >
+
+      <h2 class="text-2xl font-bold text-center mb-6">Iniciar Sesión</h2>
+
+      <form [formGroup]="frm_login" class="space-y-6">
+        <div>
+          <label for="username" class="block text-sm font-medium text-gray-700">Nombre de usuario</label>
+          <input formControlName="username"
+                 type="text" id="username" name="username" required class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 px-4 py-3">
+        </div>
+
+        <div>
+          <label for="password" class="block text-sm font-medium text-gray-700">Contraseña</label>
+          <input formControlName="password"
+                 type="password" id="password" name="password" required class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 px-4 py-3">
+        </div>
+
+        <div class="flex items-center justify-between">
+
+        </div>
+
+        <div class="flex justify-end">
+          <button
+            [ngClass]="{'disabled': frm_login.invalid}"
+            (click)="login()"
+            type="button" class="px-4 py-2 text-white bg-indigo-500 rounded-md shadow-sm hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-200 transition duration-150 ease-in-out">Iniciar Sesión</button>
+        </div>
+
+        <p class="text-center mt-4 text-gray-500">¿No tienes una cuenta? <a routerLink="/register"  class="text-blue-500 hover:text-blue-600">Crear usuario</a></p>
+      </form>
+
+
+    </div>
+  </div>
+</div>
+
+
